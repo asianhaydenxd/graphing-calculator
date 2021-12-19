@@ -9,6 +9,9 @@ wn.setup(WIDTH, HEIGHT)
 XMIN, XMAX = -20, 20
 YMIN, YMAX = -20, 20
 
+x_center = (-(XMIN + XMAX)/2) * (WIDTH/(XMAX-XMIN))
+y_center = (-(YMIN + YMAX)/2) * (HEIGHT/(YMAX-YMIN))
+
 TAKE_INPUT = False
 DEFAULT_EXPRESSION = "15/x"
 
