@@ -20,7 +20,6 @@ expression = input("y=") if TAKE_INPUT else DEFAULT_EXPRESSION
 # Initialize turtle "grapher" and make as fast as possible
 grapher = trtl.Turtle()
 grapher.penup()
-grapher.pensize(2)
 grapher.speed("fastest")
 
 def get_val_from_pos(x_coord):
@@ -36,6 +35,22 @@ def get_y(x, expression):
     except (ZeroDivisionError, ValueError):
         raise ValueError
     return eval(substituted_expression)
+
+# Draw X and Y intercepts
+grapher.pencolor("black")
+grapher.pensize(1)
+
+grapher.goto(x_center, y_center)
+grapher.back(grapher.xcor() + WIDTH/2)
+grapher.pendown()
+grapher.forward(WIDTH)
+
+grapher.goto(x_center, y_center)
+grapher.setheading(90)
+grapher.back(grapher.ycor() + HEIGHT/2)
+grapher.pendown()
+grapher.forward(HEIGHT)
+grapher.penup()
 
 # Draw graph
 
