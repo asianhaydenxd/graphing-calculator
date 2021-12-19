@@ -32,8 +32,8 @@ for x in range(XMIN, XMAX+1):
         continue
     
     # Go to the next step
-    grapher.goto(x*20, y*20)
     print(f"{x}:{y}")
+    grapher.goto((x/(XMAX-XMIN)*WIDTH), (y/(YMAX-YMIN)*HEIGHT))
     grapher.pendown()
 
 wn.mainloop()
