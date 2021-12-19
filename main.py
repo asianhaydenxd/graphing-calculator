@@ -21,6 +21,7 @@ expression = input("y=") if TAKE_INPUT else DEFAULT_EXPRESSION
 grapher = trtl.Turtle()
 grapher.penup()
 grapher.speed("fastest")
+grapher.hideturtle()
 
 def get_val_from_pos(x_coord):
     return (x_coord-WIDTH/2) / (WIDTH/(XMAX-XMIN)) + (XMIN + XMAX)/2
