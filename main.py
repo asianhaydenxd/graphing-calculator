@@ -20,6 +20,9 @@ grapher.penup()
 grapher.pensize(2)
 grapher.speed("fastest")
 
+def get_val_from_pos(x_coord):
+    return (x_coord-WIDTH/2) / (WIDTH/(XMAX-XMIN)) + (XMIN + XMAX)/2
+
 def get_y(x, expression):
     substituted_expression = expression.replace("x", f"({str(x)})") # Substitute the "x" with the current x (input, independent) value
     
