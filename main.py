@@ -4,10 +4,8 @@ from math import *
 wn = trtl.Screen()
 wn.setup(500,500)
 
-XMIN = -20
-XMAX = 20
-YMIN = -20
-YMAX = 20
+XMIN, XMAX = -20, 20
+YMIN, YMAX = -20, 20
 
 TAKE_INPUT = False
 DEFAULT_EXPRESSION = "15/x"
