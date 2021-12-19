@@ -27,7 +27,14 @@ def get_y(x, expression):
     # Evaluate and return
     return eval(substituted_expression)
 
-for x in range(XMIN, XMAX+1):
+# Draw graph
+
+grapher.pencolor("blue")
+grapher.pensize(2)
+
+for x_coord in range(WIDTH):
+    x = get_val_from_pos(x_coord)
+    
     # Get the y (output, dependent) value; skip if undefined
     try:
         y = get_y(x, expression)
@@ -36,8 +43,8 @@ for x in range(XMIN, XMAX+1):
         continue
     
     # Go to the next step
-    print(f"{x}:{y}")
-    grapher.goto((x/(XMAX-XMIN)*WIDTH), (y/(YMAX-YMIN)*HEIGHT))
+    grapher.goto((x_coord-WIDTH/2), (y/(YMAX-YMIN)*HEIGHT))
+    # print(f"{x}:{y}")
     grapher.pendown()
 
 wn.mainloop()
