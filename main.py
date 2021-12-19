@@ -17,6 +17,7 @@ expression = input("y=") if TAKE_INPUT else DEFAULT_EXPRESSION
 # Initialize turtle "grapher" and make as fast as possible
 grapher = trtl.Turtle()
 grapher.penup()
+grapher.pensize(2)
 grapher.speed("fastest")
 
 for x in range(XMIN, XMAX+1):
