@@ -1,4 +1,5 @@
 import turtle as trtl
+from math import *
 
 XMIN = -20
 XMAX = 20
