@@ -1,6 +1,9 @@
 import turtle as trtl
 from math import *
 
+wn = trtl.Screen()
+wn.setup(500,500)
+
 XMIN = -20
 XMAX = 20
 YMIN = -20
@@ -27,4 +30,4 @@ for x in range(XMIN, XMAX+1):
     print(f"{x}:{y}")
     grapher.pendown()
 
-trtl.done()
+wn.mainloop()
