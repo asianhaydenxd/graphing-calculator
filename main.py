@@ -30,7 +30,7 @@ def get_y(x, expression):
     
     # Evaluate and return
     try:
-        if eval(substituted_expression) > YMAX*5 or eval(substituted_expression) < YMIN*5:
+        if eval(substituted_expression) > YMAX or eval(substituted_expression) < YMIN:
             raise ValueError
     except (ZeroDivisionError, ValueError):
         raise ValueError
