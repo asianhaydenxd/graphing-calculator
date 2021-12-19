@@ -1,8 +1,10 @@
 import turtle as trtl
 from math import *
 
+WIDTH, HEIGHT = 500, 500
+
 wn = trtl.Screen()
-wn.setup(500,500)
+wn.setup(WIDTH, HEIGHT)
 
 XMIN, XMAX = -20, 20
 YMIN, YMAX = -20, 20
