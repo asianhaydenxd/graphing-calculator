@@ -20,13 +20,17 @@ grapher.penup()
 grapher.pensize(2)
 grapher.speed("fastest")
 
-for x in range(XMIN, XMAX+1):
+def get_y(x, expression):
     # Substitute the "x" with the current x (input, independent) value
     substituted_expression = expression.replace("x", f"({str(x)})")
     
+    # Evaluate and return
+    return eval(substituted_expression)
+
+for x in range(XMIN, XMAX+1):
     # Get the y (output, dependent) value; skip if undefined
     try:
-        y = eval(substituted_expression)
+        y = get_y(x, expression)
     except ZeroDivisionError:
         grapher.penup()
         continue
