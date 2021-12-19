@@ -21,10 +21,14 @@ grapher.pensize(2)
 grapher.speed("fastest")
 
 def get_y(x, expression):
-    # Substitute the "x" with the current x (input, independent) value
-    substituted_expression = expression.replace("x", f"({str(x)})")
+    substituted_expression = expression.replace("x", f"({str(x)})") # Substitute the "x" with the current x (input, independent) value
     
     # Evaluate and return
+    try:
+        if eval(substituted_expression) > YMAX*5 or eval(substituted_expression) < YMIN*5:
+            raise ValueError
+    except (ZeroDivisionError, ValueError):
+        raise ValueError
     return eval(substituted_expression)
 
 # Draw graph
@@ -38,7 +42,7 @@ for x_coord in range(WIDTH):
     # Get the y (output, dependent) value; skip if undefined
     try:
         y = get_y(x, expression)
-    except ZeroDivisionError:
+    except ValueError:
         grapher.penup()
         continue
     
