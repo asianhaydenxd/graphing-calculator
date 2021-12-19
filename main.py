@@ -20,7 +20,8 @@ for x in range(XMIN, XMAX+1):
     try:
         y = eval(substituted_expression)
     except ZeroDivisionError:
-        pass
+        grapher.penup()
+        continue
     
     grapher.goto(x*20, y*20)
     print(f"{x}:{y}")
