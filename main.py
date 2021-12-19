@@ -13,7 +13,10 @@ grapher.speed(11)
 
 for x in range(XMIN, XMAX+1):
     substituted_expression = expression.replace("x", f"({str(x)})")
-    y = eval(substituted_expression)
+    try:
+        y = eval(substituted_expression)
+    except ZeroDivisionError:
+        pass
     
     grapher.goto(x*20, y*20)
     print(f"{x}:{y}")
