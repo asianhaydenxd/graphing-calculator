@@ -53,32 +53,37 @@ grapher.penup()
 
 # Draw graph
 
-grapher.pencolor("blue")
-grapher.pensize(2)
+def draw_graph(expression, color):
+    grapher.pencolor(color)
+    grapher.pensize(2)
 
-for col in range(int(WIDTH/PRECISION)):
-    x_coord = col * PRECISION
-    x = get_val_from_pos(x_coord)
+    for col in range(int(WIDTH/PRECISION)):
+        x_coord = col * PRECISION
+        x = get_val_from_pos(x_coord)
+        
+        # Get the y (output, dependent) value; skip if undefined
+        try:
+            y = get_y(x, expression)
+        except ZeroDivisionError:
+            grapher.penup()
+            continue
+        
+        if y > YMAX:
+            grapher.goto((x_coord-1-WIDTH/2), HEIGHT/2)
+            grapher.penup()
+            continue
+        
+        if y < YMIN:
+            grapher.goto((x_coord-1-WIDTH/2), -HEIGHT/2)
+            grapher.penup()
+            continue
+        
+        # Go to the next step
+        grapher.goto((x_coord-WIDTH/2), (y/(YMAX-YMIN)*HEIGHT))
+        grapher.pendown()
     
-    # Get the y (output, dependent) value; skip if undefined
-    try:
-        y = get_y(x, expression)
-    except ZeroDivisionError:
-        grapher.penup()
-        continue
+    grapher.penup()
     
-    if y > YMAX:
-        grapher.goto((x_coord-1-WIDTH/2), HEIGHT/2)
-        grapher.penup()
-        continue
-    
-    if y < YMIN:
-        grapher.goto((x_coord-1-WIDTH/2), -HEIGHT/2)
-        grapher.penup()
-        continue
-    
-    # Go to the next step
-    grapher.goto((x_coord-WIDTH/2), (y/(YMAX-YMIN)*HEIGHT))
-    grapher.pendown()
+draw_graph(expression, "blue")
 
 wn.mainloop()
