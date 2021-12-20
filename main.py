@@ -8,6 +8,7 @@ wn.setup(WIDTH, HEIGHT)
 
 XMIN, XMAX = -20, 20
 YMIN, YMAX = -20, 20
+PRECISION = 1
 
 x_center = (-(XMIN + XMAX)/2) * (WIDTH/(XMAX-XMIN))
 y_center = (-(YMIN + YMAX)/2) * (HEIGHT/(YMAX-YMIN))
@@ -55,7 +56,8 @@ grapher.penup()
 grapher.pencolor("blue")
 grapher.pensize(2)
 
-for x_coord in range(WIDTH):
+for col in range(int(WIDTH/PRECISION)):
+    x_coord = col * PRECISION
     x = get_val_from_pos(x_coord)
     
     # Get the y (output, dependent) value; skip if undefined
