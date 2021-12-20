@@ -21,6 +21,8 @@ class Grapher:
         
         self.x_center = (-(self.xmin + self.xmax)/2) * (self.width/(self.xmax-self.xmin))
         self.y_center = (-(self.ymin + self.ymax)/2) * (self.height/(self.ymax-self.ymin))
+        
+        self.draw_intercepts()
     
     def get_value(self, x_coord):
         return (x_coord-self.width/2) / (self.width/(self.xmax-self.xmin)) + (self.xmin + self.xmax)/2
