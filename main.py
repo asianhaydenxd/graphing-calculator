@@ -36,20 +36,23 @@ def get_y(x, expression):
 
 # Draw X and Y intercepts
 
-grapher.pencolor("black")
-grapher.pensize(1)
+def draw_intercepts(x_center, y_center):
+    grapher.pencolor("black")
+    grapher.pensize(1)
 
-grapher.goto(x_center, y_center)
-grapher.back(grapher.xcor() + WIDTH/2)
-grapher.pendown()
-grapher.forward(WIDTH)
+    grapher.goto(x_center, y_center)
+    grapher.back(grapher.xcor() + WIDTH/2)
+    grapher.pendown()
+    grapher.forward(WIDTH)
 
-grapher.goto(x_center, y_center)
-grapher.setheading(90)
-grapher.back(grapher.ycor() + HEIGHT/2)
-grapher.pendown()
-grapher.forward(HEIGHT)
-grapher.penup()
+    grapher.goto(x_center, y_center)
+    grapher.setheading(90)
+    grapher.back(grapher.ycor() + HEIGHT/2)
+    grapher.pendown()
+    grapher.forward(HEIGHT)
+    grapher.penup()
+
+draw_intercepts(x_center, y_center)
 
 # Draw graph
 
