@@ -27,7 +27,7 @@ class Grapher:
         self.x_center = (-(self.xmin + self.xmax)/2) * (self.width/(self.xmax-self.xmin))
         self.y_center = (-(self.ymin + self.ymax)/2) * (self.height/(self.ymax-self.ymin))
         
-        self.draw_intercepts()
+        self.draw_axes()
     
     # Gets the X value of the graph that the given X coordinate represents
     def get_value(self, x_coord):
@@ -38,7 +38,7 @@ class Grapher:
         self.wn.mainloop()
     
     # Draws the X and Y axes
-    def draw_intercepts(self):
+    def draw_axes(self):
         # Set the color and thickness
         self.grapher.pencolor("black")
         self.grapher.pensize(1)
