@@ -63,6 +63,7 @@ class Grapher:
         self.grapher.pencolor(color)
         self.grapher.pensize(2)
 
+        # For every X coordinate that is going to be checked
         for col in range(int(self.width/precision)):
             x_coord = col * precision
             x = self.get_value(x_coord)
