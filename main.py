@@ -31,11 +31,6 @@ def get_y(x, expression):
     substituted_expression = expression.replace("x", f"({str(x)})") # Substitute the "x" with the current x (input, independent) value
     
     # Evaluate and return
-    try:
-        if eval(substituted_expression) > YMAX or eval(substituted_expression) < YMIN:
-            raise ValueError
-    except (ZeroDivisionError, ValueError):
-        raise ValueError
     return eval(substituted_expression)
 
 # Draw X and Y intercepts
@@ -66,7 +61,17 @@ for x_coord in range(WIDTH):
     # Get the y (output, dependent) value; skip if undefined
     try:
         y = get_y(x, expression)
-    except ValueError:
+    except ZeroDivisionError:
+        grapher.penup()
+        continue
+    
+    if y > YMAX:
+        grapher.goto((x_coord-1-WIDTH/2), HEIGHT/2)
+        grapher.penup()
+        continue
+    
+    if y < YMIN:
+        grapher.goto((x_coord-1-WIDTH/2), -HEIGHT/2)
         grapher.penup()
         continue
     
